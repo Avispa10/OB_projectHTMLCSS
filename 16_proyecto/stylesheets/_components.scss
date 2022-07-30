@@ -1,0 +1,100 @@
+$color_main: #0075ff;
+$color_light: white;
+$color_dark: black;
+$color_mid: #888;
+
+@mixin button-base {
+  padding: 0.8rem 1.6rem;
+  border-radius: 0.3rem;
+}
+
+@mixin button_smaller {
+  font-size: 0.75rem;
+  padding: 0.5rem 1rem;
+}
+
+.btn_main {
+  @include button-base();
+  background-color: $color_main;
+  color: $color_light;
+  border: 2px solid $color_main;
+
+  &:hover {
+    background-color: $color_light;
+    color: $color_main;
+  }
+
+  &-s {
+    @include button_smaller();
+    @extend .btn_main;
+  }
+}
+
+.btn_sec {
+  @include button-base();
+  background-color: $color_light;
+  color: $color_dark;
+  border: none;
+
+  &:hover {
+    color: $color_mid;
+  }
+
+  &-s {
+    @extend .btn_sec;
+    @include button_smaller();
+  }
+}
+
+.main_menu {
+  li {
+    list-style: none;
+    display: inline;
+    font-size: 0.75rem;
+    font-weight: bold;
+    margin-right: 1rem;
+
+    a {
+      text-decoration: none;
+      color: $color_dark;
+    }
+  }
+}
+
+.icon-sm {
+  width: fit-content;
+  height: fit-content;
+  padding: 0.4rem 0.9rem;
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgba(128, 128, 128, 0.589);
+  i {
+    color: $color_main;
+  }
+}
+
+.feature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-self: baseline;
+  .icon {
+    color: $color_main;
+    font-size: 8rem;
+  }
+
+  .description {
+    .title {
+      font-size: 2rem;
+    }
+
+    .text {
+      color: $color_mid;
+      font-size: 1.5rem;
+    }
+  }
+
+  .cta {
+    font-size: 1rem;
+    color: $color_main;
+  }
+}
