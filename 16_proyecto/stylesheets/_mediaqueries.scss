@@ -1,0 +1,90 @@
+@use "components";
+
+@mixin one_center_column {
+  text-align: center;
+  max-width: 400px;
+  margin: auto;
+  gap: 1rem;
+}
+
+@media (max-width: 880px) {
+  .nav_toggler {
+    display: block;
+  }
+
+  .menu_main {
+    display: none;
+  }
+
+  .features_body .image {
+    img {
+      max-width: 35vw;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .sec_home {
+    .home_cta {
+      max-width: 520px;
+
+      .lead_magnet {
+        font-size: 0.8rem;
+        .btn_main {
+          padding: 0.35rem 0.5rem;
+        }
+      }
+    }
+  }
+  .features {
+    &_body {
+      .features_text {
+        @include one_center_column();
+
+        .features_feature {
+          flex-direction: column;
+          align-items: center;
+          margin-bottom: 2rem;
+        }
+      }
+    }
+  }
+
+  .benefits_cards {
+    flex-direction: column;
+    @include one_center_column();
+
+    .benefit {
+      .description {
+        margin-top: -1.5rem;
+
+        .text::after {
+          content: "More info";
+          display: inline;
+          font-size: smaller;
+          color: components.$color_main;
+        }
+      }
+
+      .cta {
+        display: none;
+      }
+    }
+  }
+
+  .onboarding {
+    &_steps {
+      flex-direction: column;
+      @include one_center_column();
+
+      .onboarding_step_title {
+        margin-top: -1rem;
+      }
+    }
+  }
+
+  .footer_cta {
+    width: 100%;
+    text-align: center;
+  }
+}
