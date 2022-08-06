@@ -2,14 +2,15 @@ $color_main: #0075ff;
 $color_light: white;
 $color_dark: black;
 $color_mid: #888;
+$color_footer: #f4f8fe;
 
 @mixin button-base {
-  padding: 0.8rem 1.6rem;
+  padding: 0.3rem 1.6rem;
   border-radius: 0.3rem;
 }
 
 @mixin button_smaller {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   padding: 0.5rem 1rem;
 }
 
@@ -34,10 +35,11 @@ $color_mid: #888;
   @include button-base();
   background-color: $color_light;
   color: $color_dark;
-  border: none;
+  border: 1px solid transparent;
 
   &:hover {
     color: $color_mid;
+    border: 1px solid $color_mid;
   }
 
   &-s {
@@ -46,55 +48,90 @@ $color_mid: #888;
   }
 }
 
-.main_menu {
+.menu_main {
+  margin-bottom: 0px;
+
   li {
     list-style: none;
     display: inline;
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     font-weight: bold;
     margin-right: 1rem;
 
     a {
       text-decoration: none;
       color: $color_dark;
+
+      &:hover {
+        color: #0075ff;
+      }
     }
   }
 }
 
+
+
 .icon-sm {
-  width: fit-content;
-  height: fit-content;
-  padding: 0.4rem 0.9rem;
+  flex-shrink: 0;
+  text-align: center;
+  padding-top: 0.5rem;
+  font-size: 1.5rem;
+  width: 3.2rem;
+  height: 3.2rem;
   border-radius: 50%;
-  box-shadow: 0 0 12px rgba(128, 128, 128, 0.589);
+  box-shadow: 0 0 12px rgba(162, 162, 162, 0.589);
   i {
     color: $color_main;
   }
 }
 
-.feature {
+.benefits {
+  border-top: 1px solid #ddd;
+
+  .benefit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-basis: 100%;
+    .icon {
+      color: $color_main;
+      font-size: 5rem;
+    }
+
+    .description {
+      .title {
+      }
+
+      .text {
+        color: $color_mid;
+        font-size: 0.95rem;
+      }
+    }
+
+    .cta {
+      margin-top: 2rem;
+      font-size: 0.8rem;
+      color: $color_main;
+
+      a {
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.onboarding_step {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-self: baseline;
-  .icon {
+  justify-self: center;
+
+  &_icon {
     color: $color_main;
-    font-size: 8rem;
+    font-size: 5rem;
   }
-
-  .description {
-    .title {
-      font-size: 2rem;
-    }
-
-    .text {
-      color: $color_mid;
-      font-size: 1.5rem;
-    }
-  }
-
-  .cta {
+  &_title {
+    text-align: center;
     font-size: 1rem;
-    color: $color_main;
   }
 }
