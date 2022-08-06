@@ -1,4 +1,174 @@
+@use "components";
+
+@mixin section-display {
+  padding: 3rem 4rem;
+  margin: auto;
+
+  max-width: 960px;
+  justify-content: center;
+}
 html {
-    font-size: 16px;
+  font-size: 16px;
 }
 
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.nav {
+  margin: auto;
+  max-width: 1080px;
+  display: flex;
+  height: 4rem;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+
+  &_toggler {
+    display: none;
+  }
+}
+
+.sec_home {
+  display: flex;
+  @include section-display();
+  gap: 3rem;
+  align-items: center;
+
+  .home_cta {
+    flex: 1;
+
+    &_text {
+      color: components.$color_main;
+    }
+
+    &_title {
+      font-weight: 500;
+    }
+  }
+
+  .home_img {
+    flex: 0.7;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.features {
+  @include section-display();
+
+  &_intro {
+    text-align: center;
+
+    h3 {
+      font-size: 2.5rem;
+    }
+
+    p {
+      color: components.$color_mid;
+    }
+  }
+
+  &_body {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    padding-top: 1.5rem;
+    .features_text {
+      flex-grow: 1;
+      flex-shrink: 1;
+      .features_feature {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        .features_description {
+          padding: 1 rem;
+          h4 {
+            margin-bottom: 0.2rem;
+          }
+
+          p {
+            font-size: 0.95rem;
+          }
+        }
+      }
+    }
+
+    .image {
+      max-width: 50%;
+    }
+  }
+}
+
+.benefits {
+  @include section-display();
+  @extend .features_intro;
+
+  &_intro {
+  }
+
+  &_cards {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+  }
+}
+
+.kpis {
+  margin: 2rem 0;
+  padding: 3rem;
+  background-color: components.$color_main;
+  color: components.$color_light;
+
+  .kpi {
+    text-align: center;
+
+    &_number {
+      font-size: 3rem;
+    }
+
+    &_desc {
+      margin-top: -0.5rem;
+      font-size: 0.8rem;
+      color: aliceblue;
+    }
+  }
+}
+
+.onboarding {
+  @include section-display();
+  &_intro {
+    @extend .features_intro;
+  }
+
+  &_steps {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    margin-top: 2rem;
+    flex-grow: 1;
+
+    .sep {
+      width: 5rem;
+      border-bottom: 1px solid #ddd;
+    }
+  }
+}
+
+.footer {
+  width: 100%;
+  padding: 4rem 6rem;
+  background-color: components.$color_footer;
+  background-image: url("../assets/img/bg.png");
+  background-repeat: no-repeat;
+  background-position: 100% 0;
+  background-size: 50%;
+
+  &_cta {
+    width: 50%;
+  }
+}
